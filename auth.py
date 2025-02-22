@@ -19,7 +19,8 @@ def register_user(username, passwd):
 
     # If it doesn't append the new user to the passwd file.
     with open(PASSWD_FILE, 'a') as f:
-        f.write(f"{username}:{hashed_passwd}\n")
+        f.write(f"{username}:{hashed_passwd.decode('utf-8')}\n")
+        return True
 
 def authenticate_user(username, passwd):
     passwd_bytes = passwd.encode('utf-8')
