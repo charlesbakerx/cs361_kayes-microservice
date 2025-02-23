@@ -33,9 +33,10 @@ def login():
 
     if authenticate_user(username, password):
         access_token = generate_session_token(username)
-        return jsonify({'access_token': access_token}), 200
+        return jsonify({'message': 'You can now access your tasks', 'access_token': access_token}), 200
     else:
         return jsonify({'message': 'Invalid username or password'}), 401
+
 
 @app.route('/tasks', methods=['GET'])
 @jwt_required()
@@ -45,8 +46,19 @@ def get_tasks():
 
     username = get_jwt_identity()
     # Some example tasks, you would replace this with calls to wherever the actual tasks are stored.
-    tasks = {'tasks': ['Task 1', 'Task 2', 'Task 3']}
+    tasks = {'tasks': [
+        {'task_name': "Email TAs", 'priority': "High", 'category': "School", 'status': "pending",
+         'dueDate': "2025-02-10"},
+        {'task_name': "Finish project report", 'priority': "Medium", 'category': "Work", 'status': "in-progress",
+         'dueDate': "2024-12-01"},
+        {'task_name': "Grocery shopping", 'priority': "Low", 'category': "Personal", 'status': "pending",
+         'dueDate': "2023-11-15"},
+        {'task_name': "Plan vacation", 'priority': "Medium", 'category': "Leisure", 'status': "not-started",
+         'dueDate': "2024-06-20"}
+    ]}
+
     return jsonify({'username': username, 'tasks': tasks}), 200
+
 
 @app.route('/logout', methods=['POST'])
 @jwt_required()
