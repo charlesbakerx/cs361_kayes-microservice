@@ -15,7 +15,7 @@
 # How to REQUEST data
 To interact with the API, you'll be sending HTTP requests to the available endpoints. Here is a quick guide for making requests:
 - Registration:
-  - Send a **POST** request to `/register` with a JSON payload containing the `username` and `password`.
+  Send a **POST** request to `/register` with a JSON payload containing the `username` and `password`.
   Here is an example using curl:
   ```bash
   curl -X POST http://localhost:5000/register \
@@ -39,7 +39,7 @@ To interact with the API, you'll be sending HTTP requests to the available endpo
   print("Response:", response.json())
   ```
 - Login:
-  - Send a POST request to `/login` with a JSON payload that includes your `username` and `password`. Upon successful login, you will receive a JWT access token.
+  Send a POST request to `/login` with a JSON payload that includes your `username` and `password`. Upon successful login, you will receive a JWT access token.
   Here is an example using curl:
   ```bash
   curl -X POST http://localhost:5000/login \
@@ -68,7 +68,7 @@ To interact with the API, you'll be sending HTTP requests to the available endpo
   ```
 
 - Fetching Tasks:
-  - After logging in, use the token from the login response to request tasks. Send a GET request to `/tasks` with the token included in the Authorization header.
+  After logging in, use the token from the login response to request tasks. Send a GET request to `/tasks` with the token included in the Authorization header.
   Here is an example using curl:
   ```bash
   curl -X GET http://localhost:5000/tasks \
@@ -93,7 +93,7 @@ To interact with the API, you'll be sending HTTP requests to the available endpo
   ```
 
 - Logout:
-  - To logout, send a POST request to `/logout` with the JWT token in the Authorization header to revoke the session token.
+  To logout, send a POST request to `/logout` with the JWT token in the Authorization header to revoke the session token.
   Here is an example using curl:
   ```bash
   curl -X POST http://localhost:5000/logout \
@@ -119,34 +119,34 @@ To interact with the API, you'll be sending HTTP requests to the available endpo
 # How to RECEIVE data
 Each API endpoint returns a JSON response.
   - Registration Response:
-    - Success (201):
+    Success (201):
     ```json
     {
       "message": "User created successfully"
     }
     ```
-    - Failure (400):
+    Failure (400):
     ```json
     {
       "message": "User already exists"
     }
     ```
   - Login Response:
-    - On a successful login (200), you will receive an access token along with a message:
+    On a successful login (200), you will receive an access token along with a message:
     ```json
     {
       "message": "You can now access your tasks",
       "access_token": "<your_access_token>"
     }
     ```
-    - If authentication fails, you will get a 401 status:
+    If authentication fails, you will get a 401 status:
     ```json
     {
       "message": "Invalid username or password"
     }
     ```
   - Fetching Tasks Response:
-    - For a valid session token, the GET request to `/tasks` returns a JSON payload with the current user's tasks:
+    For a valid session token, the GET request to `/tasks` returns a JSON payload with the current user's tasks:
     ```json
     {
       "username": "your_username",
@@ -169,14 +169,14 @@ Each API endpoint returns a JSON response.
       ]
     }
     ```
-    - An invalid or revoked session token will return a 401 status:
+    An invalid or revoked session token will return a 401 status:
     ```json
     {
       "message": "Invalid session token"
     }
     ```
   - Logout Response:
-    - Success (200):
+    Success (200):
     ```json
     {
       "message": "your_username, Logged out successfully"
