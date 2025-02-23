@@ -13,7 +13,7 @@ def revoke_session_token(token):
     with open(REVOKED_TOKENS_FILE, 'a') as f:
         f.write(f"{token}\n")
 
-def is_valid_session_token(token):
+def verify_session_token(token):
     try:
         with open(REVOKED_TOKENS_FILE, 'r') as f:
             for line in f:
