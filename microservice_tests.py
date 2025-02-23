@@ -76,26 +76,36 @@ def test_logout(token):
 if __name__ == "__main__":
     print(f"\nTesting registration for a new user: {TEST_USER['username']}...")
     test_register()
-    print(f"\nTesting registration for an existing user: {TEST_USER['username']}...")
+    print(f"\nTesting registration for an existing user: {
+          TEST_USER['username']}...")
     test_register()
 
-    print(f"\nTesting login for an invalid user: {INVALID_USER['username']}...")
+    print(f"\nTesting login for an invalid user: {
+          INVALID_USER['username']}...")
     invalid = test_login(INVALID_USER)
     print(f"\nTesting login for a valid user: {TEST_USER['username']}...")
     token = test_login()
 
     if token:
-        print(f"\nTesting task fetching for user: {TEST_USER['username']} with token: {token}...")
+        print(f"\nTesting task fetching for user: {
+              TEST_USER['username']} with token: {token}...")
         test_get_tasks(token)
 
-        print(f"\nTesting logout for user: {TEST_USER['username']} with token: {token}...")
+        print(f"\nTesting logout for user: {
+              TEST_USER['username']} with token: {token}...")
         test_logout(token)
 
-    print(f"\nTesting task fetching for user {TEST_USER['username']} after logout...")
+    print(f"\nTesting task fetching for user {
+          TEST_USER['username']} after logout...")
     test_get_tasks(token)
 
     print(f"\nTesting logging back in for user: {TEST_USER['username']}...")
     token = test_login()
 
-    print(f"\nTesting task fetching for user: {TEST_USER['username']} with token: {token}...")
+    print(f"\nTesting task fetching for user: {
+          TEST_USER['username']} with token: {token}...")
+    test_get_tasks(token)
+
+    print("\nTesting task fetching with no access token...")
+    token = ""
     test_get_tasks(token)
