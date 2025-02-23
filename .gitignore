@@ -398,3 +398,4 @@ cython_debug/
 .idea/
 
 /data/passwd
+config.py
