@@ -1,16 +1,16 @@
 # Communication Contract
 - For which teammate did you implement “Microservice A”?\
-  Kaye
+  > Kaye
 - What is the current status of the microservice? Hopefully, it’s done!\
-  It is done, however it will need to be modified to handle tasks or to call the service that does.
+  > It is done, however it will need to be modified to handle tasks or to call the service that does.
 - How is your teammate going to access your microservice? Should they get your code from GitHub (if so, provide a link to your public or private repo)? Should they run your code locally? Is your microservice hosted somewhere? Etc.\
-  I do have the code on GitHub and they could run the microservice locally or we can work out hosting it remotely. Whatever she decides is best.
+  > I do have the code on GitHub and they could run the microservice locally or we can work out hosting it remotely. Whatever she decides is best.
 - If your teammate cannot access/call YOUR microservice, what should they do? Can you be available to help them? What’s your availability?\
-  I try to check my messages daily but even if I don't notifications should let me know either way. I work M-Th, from 15:30 to 00:30 CST. Any other time I should be home.
+  > I try to check my messages daily but even if I don't notifications should let me know either way. I work M-Th, from 15:30 to 00:30 CST. Any other time I should be home.
 - If your teammate cannot access/call your microservice, by when do they need to tell you?\
-  Ideally as soon as possible so we can get things worked out.
+  > Ideally as soon as possible so we can get things worked out.
 - Is there anything else your teammate needs to know? Anything you’re worried about? Any assumptions you’re making? Any other mitigations / backup plans you want to mention or want to discuss with your teammate?\
-  Since the primary focus of this microservice is handling user authentication and session management I have just inserted an example call for getting tasks. I am assuming that this will be implemented by another microservice and later tied into my microservice.
+  > Since the primary focus of this microservice is handling user authentication and session management I have just inserted an example call for getting tasks. I am assuming that this will be implemented by another microservice and later tied into my microservice.
 
 # How to REQUEST data
 To interact with the API, you'll be sending HTTP requests to the available endpoints. Here is a quick guide for making requests:
